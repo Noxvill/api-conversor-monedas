@@ -93,5 +93,44 @@ async function renderFinalValue() {
     // imprimo en el dom el resultado
     document.getElementById("points").innerHTML =
       "Resultado: " + "$" + valorfinal;
+      renderGrafica()
   }
 }
+// Función para nutrir gráfico
+
+
+
+async function getAndCreateDataToChart() {
+    // var sel;
+    // sel = currencyOption.value;
+    const res = await
+    fetch(apiURL);
+    const monedas = await res.json();
+    const labels = monedas.map((moneda) => {
+    return moneda.Fecha;
+    });
+    const data = monedas.map((moneda) => {
+    const Valor = moneda.serie.split(" ")[0];
+    return Number(Valor);
+    });
+    const datasets = [
+    {
+    label: "Moneda",
+    borderColor: "rgb(255, 99, 132)",
+    data
+    }
+    ];
+    return { labels, datasets };
+    }
+
+    async function renderGrafica() {
+        const data = await getAndCreateDataToChart();
+        const config = {
+        type: "line",
+        data
+        };
+        const myChart = document.getElementById("myChart");
+        myChart.style.backgroundColor = "white";
+        new Chart(myChart, config);
+        }
+        renderGrafica();
