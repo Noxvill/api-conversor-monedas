@@ -19,23 +19,49 @@
 <br>
 <br>
 <br>
+</div>
 <div id="databox">
 <h2 id="pesostxt">Pesos CLP</h2>
 <br>
-<input id="inputclp" placeholder="Ingrese el monto en CLP">
+<input id="inputclp" placeholder=" Ingrese el monto en CLP">
 <br>
 <h3 id="monedatxt">Moneda a convertir:</h2>
     <br>
-<select id="selectvalue" placeholder="Seleccione Moneda"></select>
+
+<select id="selectvalue">
+    <option value="default">Seleccione Moneda</option>
+   
+    
+  </select>
+
 <br>
-<button id="btnconvert" type="button" >Buscar</button>
+<button id="btnconvert" type="button">Buscar</button>
 <br>
-<h3 id="points">...</h3>
+
+<div id="points">...</div>
+
+
 </div>
+
+
+<div id="graph">
+
+    <div id="graph">
+<br>
+<br>
+        <h1>Últimos valores</h1>
+        <div class="grafica">
+        <canvas id="myChart"></canvas>
+        </div>
+    
+    </div>
+
 </div>
+
 </div>
 </div>
 
 <script src="./assets/js/index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 </html>
